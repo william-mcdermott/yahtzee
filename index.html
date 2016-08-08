@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yahtzee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src = "app0.js"></script>
+</head>
+
+<body>
+	<h1>Yahtzee</h1>
+	<div class="block" id="game-area">
+		<div class="block-content">
+			<form id="yahtzeeForm" action="#">
+						<p>Rolls Left</p>
+						<div class="short text" id="rollsLeft"></div>
+        <form class="rollForm" action="#">
+          <div class = "keepBoxes">
+						<div id="die0" class="dice"></div>
+						<div id="die1" class="dice"></div>
+						<div id="die2" class="dice"></div>
+						<div id="die3" class="dice"></div>
+						<div id="die4" class="dice"></div>
+          </div>
+          <div class = "keepBoxes">
+            <div class="keepBox">
+  						<input type="checkbox" class="keep" id="keep0">
+            </div>
+            <div class="keepBox">
+  						<input type="checkbox" class="keep" id="keep1">
+            </div>
+            <div class="keepBox">
+  						<input type="checkbox" class="keep" id="keep2">
+            </div>
+            <div class="keepBox">
+  						<input type="checkbox" class="keep" id="keep3">
+            </div>
+            <div class="keepBox">
+  						<input type="checkbox" class="keep" id="keep4">
+            </div>
+          </div>
+						<input type="button" class="rollBtn" value="Roll">
+        </form>
+        <div class = "col-md-6">
+          <h4>Player 1</h4>
+        </div>
+        <div class = "col-md-6">
+          <h4>Player 2</h4>
+        </div>
+				<div class="row totalTable">
+          <div class="p1 col-md-3">
+							<input type="button" class="button slot button1" value="1's">
+							<div class="text upperScore"><span id="score1" class="score"></span></div>
+							<input type="button" class="button slot button2" value="2's">
+							<div class="text upperScore"><span id="score2" class="score"></span></div>
+							<input type="button" class="button slot button3" value="3's">
+							<div class="text upperScore"><span id="score3" class="score"></span></div>
+							<input type="button" class="button slot button4" value="4's">
+							<div class="text upperScore"><span id="score4" class="score"></span></div>
+							<input type="button" class="button slot button5" value="5's">
+							<div class="text upperScore"><span id="score5" class="score"></span></div>
+							<input type="button" class="button slot button6" value="6's">
+							<div class="text upperScore"><span id="score6" class="score"></span></div>
+							Subtotal
+							<div class="text"><span id="upperSubtotal" class="score"></span></div>
+							Bonus
+							<div class="text"><span id="bonus" class="score"></span></div>
+							Upper Total
+							<div class="text"><span id="upperTotal" class="score"></span></div>
+        </div>
+
+          <div class="p1 col-md-3">
+							<input type="button" class="button slot threeBtn" value="Three of a kind">
+							<div class="text"><span id="threeOfAKind" class="score"></span></div>
+							<input type="button" class="button slot fourBtn" value="Four of a kind">
+							<div class="text"><span id="fourOfAKind" class="score"></span></div>
+							<input type="button" class="button slot fullBtn" value="Full House">
+							<div class="text"><span id="fullHouse" class="score"></span></div>
+							<input type="button" class="button slot smallBtn" value="Small Straight">
+							<div class="text"><span id="smallStraight" class="score"></span></div>
+							<input type="button" class="button slot largeBtn" value="Large Straight">
+							<div class="text"><span id="largeStraight" class="score"></span></div>
+							<input type="button" class="button slot yahtzeeBtn" value="Yahtzee">
+								<div class="text"><span id="yahtzee" class="score"></span><span id="yahtzeeBonus" class="score"></span></div>
+							<input type="button" class="button slot chanceBtn" value="Chance">
+							<div class="text"><span id="chance" class="score"></span></div>
+              Subtotal
+              <div class="text"><span id="lowerSubtotal" class="score"></span></div>
+							<strong>Total Score</strong>
+							<div class="text"><span id="currentScore" class="score"></span></div>
+        </div>
+        <div class="p2 col1 col-md-3">
+            <input type="button" class="button slot button1" value="1's" disabled>
+            <div class="text upperScore"><span id="p2score1" class="score"></span></div>
+            <input type="button" class="button slot button2" value="2's" disabled>
+            <div class="text upperScore"><span id="p2score2" class="score"></span></div>
+            <input type="button" class="button slot button3" value="3's" disabled>
+            <div class="text upperScore"><span id="p2score3" class="score"></span></div>
+            <input type="button" class="button slot button4" value="4's" disabled>
+            <div class="text upperScore"><span id="p2score4" class="score"></span></div>
+            <input type="button" class="button slot button5" value="5's" disabled>
+            <div class="text upperScore"><span id="p2score5" class="score"></span></div>
+            <input type="button" class="button slot button6" value="6's" disabled>
+            <div class="text upperScore"><span id="p2score6" class="score"></span></div>
+            Subtotal
+            <div class="text"><span id="p2upperSubtotal" class="score"></span></div>
+            Bonus
+            <div class="text"><span id="p2bonus" class="score"></span></div>
+            Upper Total
+            <div class="text"><span id="p2upperTotal" class="score"></span></div>
+      </div>
+
+        <div class="p2 col-md-3">
+            <input type="button" class="button slot threeBtn" value="Three of a kind" disabled>
+            <div class="text"><span id="p2threeOfAKind" class="score"></span></div>
+            <input type="button" class="button slot fourBtn" value="Four of a kind" disabled>
+            <div class="text"><span id="p2fourOfAKind" class="score"></span></div>
+            <input type="button" class="button slot fullBtn" value="Full House" disabled>
+            <div class="text"><span id="p2fullHouse" class="score"></span></div>
+            <input type="button" class="button slot smallBtn" value="Small Straight" disabled>
+            <div class="text"><span id="p2smallStraight" class="score"></span></div>
+            <input type="button" class="button slot largeBtn" value="Large Straight" disabled>
+            <div class="text"><span id="p2largeStraight" class="score"></span></div>
+            <input type="button" class="button slot yahtzeeBtn" value="Yahtzee" disabled>
+              <div class="text"><span id="p2yahtzee" class="score"></span></div>
+            <input type="button" class="button slot chanceBtn" value="Chance" disabled>
+            <div class="text"><span id="p2chance" class="score"></span></div>
+            Subtotal
+            <div class="text"><span id="p2lowerSubtotal" class="score"></span></div>
+            <strong>Total Score</strong>
+            <div class="text"><span id="p2currentScore" class="score"></span></div>
+      </div>
+
+				</div>
+			</form>
+    </div>
+  </div>
+</body>
+</html>
